@@ -1,16 +1,14 @@
 <?php 
 require_once("DBInterface.php");
 
-class AccountDao
+class AccountDao implements Dao
 {
-
 	function insert($account)
 	{
 		$sql="INSERT INTO  accounts ( name , created , modified) VALUES ('".$account->getNomeConta()."','".  $account->getDataCriacao()."','". $account->getDataEdicao()."')";
 		$interface = new DBInterface();
 		$result = $interface->executeSQL($sql);		
 	}
-
 	function getAccount($id='')
 	{
 		$interface = new DBInterface();
@@ -22,7 +20,6 @@ class AccountDao
 		$result =  $interface->getObj($sql) ;
 		return $result;
 	}
-	
 	function updateAccount($account)
 	{
 		$interface = new DBInterface();

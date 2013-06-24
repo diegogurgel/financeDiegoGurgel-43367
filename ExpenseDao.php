@@ -1,7 +1,7 @@
 <?php 
 require_once("DBInterface.php");
 
-class ExpenseDao
+class ExpenseDao implements Dao
 {
 
 	function insert($expense)

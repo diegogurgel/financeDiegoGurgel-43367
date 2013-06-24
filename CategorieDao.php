@@ -1,7 +1,7 @@
 <?php 
 require_once("DBInterface.php");
 
-class CategorieDao
+class CategorieDao implements Dao
 {
 
 	function insert($categorie)
