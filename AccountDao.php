@@ -1,5 +1,6 @@
 <?php 
 require_once("DBInterface.php");
+require_once("Dao.php");
 
 class AccountDao implements Dao
 {
@@ -9,7 +10,7 @@ class AccountDao implements Dao
 		$interface = new DBInterface();
 		$result = $interface->executeSQL($sql);		
 	}
-	function getAccount($id='')
+	function select($id='')
 	{
 		$interface = new DBInterface();
 		if($id!=''){
@@ -20,13 +21,16 @@ class AccountDao implements Dao
 		$result =  $interface->getObj($sql) ;
 		return $result;
 	}
-	function updateAccount($account)
+	function selectAll(){
+		
+	}
+	function update($account)
 	{
 		$interface = new DBInterface();
 		$sql = "UPDATE accounts SET name = '".$account->getNomeConta()."', created = '".$account->getDataCriacao()."' =modified='".$account->getDataEdicao()."' WHERE id =".$account->getId().";";
 		$result =  $interface->executeSQL($sql);
 	}
-	function removeObj($account){
+	function delete($account){
 		$interface = new DBInterface();
 		$sql =   "DELETE FROM accounts WHERE id =".$account->getId().";";
 		$result =  $interface->executeSQL($sql);

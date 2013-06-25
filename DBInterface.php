@@ -8,7 +8,7 @@ class DBInterface{
 		$this->conexao = mysql_connect("localhost","root","usbw");
 		if(!$this->conexao)
 		{
-			die ("Falha na conexao com o Banco de Dados!");
+			die ("Falha na coneco com o Banco de Dados!");
 		}else
 		{
 			$this->dataBase =  mysql_select_db("trabalhofinance");

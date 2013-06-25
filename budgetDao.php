@@ -1,16 +1,17 @@
 <?php 
 require_once("DBInterface.php");
+require_once("Dao.php");
 class BudgetDao implements Dao
 {
 
 	function insert($budget)
 	{
-		$sql="INSERT INTO  budgets (created , modified) VALUES ('".  $budget->getDataCriacao()."','". $budget->getDataEdicao()."')";
+		$sql="INSERT INTO  budgets (created , modified) VALUES (".  $budget->getDataCriacao().",". $budget->getDataEdicao().",)";
 		$interface = new DBInterface();
 		$result = $interface->executeSQL($sql);		
 	}
 
-	function getbudget($id='')
+	function select($id='')
 	{
 		$interface = new DBInterface();
 		if($id!=''){
@@ -21,14 +22,18 @@ class BudgetDao implements Dao
 		$result =  $interface->getObj($sql) ;
 		return $result;
 	}
+	function selectAll()
+	{
+
+	}
 	
-	function updatebudget($budget)
+	function update($budget)
 	{
 		$interface = new DBInterface();
 		$sql = "UPDATE budgets SET created = '".$budget->getDataCriacao()."' =modified='".$budget->getDataEdicao()."' WHERE id =".$budget->getId().";";
 		$result =  $interface->executeSQL($sql);
 	}
-	function removeObj($budget){
+	function delete($budget){
 		$interface = new DBInterface();
 		$sql =   "DELETE FROM budgets WHERE id =".$budget->getId().";";
 		$result =  $interface->executeSQL($sql);

@@ -1,6 +1,6 @@
 <?php 
 require_once("DBInterface.php");
-
+require_once("Dao.php");
 class CategorieDao implements Dao
 {
 
@@ -11,7 +11,7 @@ class CategorieDao implements Dao
 		$result = $interface->executeSQL($sql);		
 	}
 
-	function getCategorie($id='')
+	function select($id='')
 	{
 		$interface = new DBInterface();
 		if($id!=''){
@@ -22,14 +22,17 @@ class CategorieDao implements Dao
 		$result =  $interface->getObj($sql) ;
 		return $result;
 	}
+	function selectAll(){
+
+	}
 	
-	function updateCategorie($categorie)
+	function update($categorie)
 	{
 		$interface = new DBInterface();
 		$sql = "UPDATE categories SET name = '".$categorie->getNome."', created = '".$categorie->getDataCriacao()."' =modified='".$categorie->getDataEdicao()."' WHERE id =".$categorie->getId().";";
 		$result =  $interface->executeSQL($sql);
 	}
-	function removeObj($categorie){
+	function delete($categorie){
 		$interface = new DBInterface();
 		$sql =   "DELETE FROM categories WHERE id =".$categorie->getId().";";
 		$result =  $interface->executeSQL($sql);

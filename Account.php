@@ -1,3 +1,5 @@
+
+
 <?php
 class Account{
 	private $id;
@@ -17,8 +19,7 @@ class Account{
     	return $this;
     }
 
-
-    function getNomeConta()
+   function getNomeConta()
     {
     	return $this->nomeConta;
     }
