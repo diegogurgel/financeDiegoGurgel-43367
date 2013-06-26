@@ -14,16 +14,15 @@ class CategorieDao implements Dao
 	function select($id='')
 	{
 		$interface = new DBInterface();
-		if($id!=''){
-			$sql = "SELECT * FROM  categories WHERE id = $id";
-		}else{
-			$sql = "SELECT * FROM  categories";
-		}
+		$sql = "SELECT * FROM  categories WHERE id = $id";
 		$result =  $interface->getObj($sql) ;
 		return $result;
 	}
 	function selectAll(){
-
+		$interface = new DBInterface();
+		$sql = "SELECT * FROM  categories";
+		$result =  $interface->getObj($sql) ;
+		return $result;
 	}
 	
 	function update($categorie)

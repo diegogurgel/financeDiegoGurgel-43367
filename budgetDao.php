@@ -14,17 +14,16 @@ class BudgetDao implements Dao
 	function select($id='')
 	{
 		$interface = new DBInterface();
-		if($id!=''){
-			$sql = "SELECT * FROM  budgets WHERE id = $id";
-		}else{
-			$sql = "SELECT * FROM  budgets";
-		}
+		$sql = "SELECT * FROM  budgets WHERE id = $id";
 		$result =  $interface->getObj($sql) ;
 		return $result;
 	}
 	function selectAll()
 	{
-
+		$interface = new DBInterface();
+		$sql = "SELECT * FROM  budgets";
+		$result =  $interface->getObj($sql) ;
+		return $result;
 	}
 	
 	function update($budget)

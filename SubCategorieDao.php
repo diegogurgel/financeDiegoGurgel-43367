@@ -14,17 +14,17 @@ class SubCategorieDao implements Dao
 	function select($id='')
 	{
 		$interface = new DBInterface();
-		if($id!=''){
-			$sql = "SELECT * FROM  sub_categories WHERE id = $id";
-		}else{
-			$sql = "SELECT * FROM  sub_categories";
-		}
+		$sql = "SELECT * FROM  sub_categories WHERE id = $id";
 		$result =  $interface->getObj($sql) ;
 		return $result;
 	}
 	function selectAll(){
-		
+		$interface = new DBInterface();
+		$sql = "SELECT * FROM  sub_categories";
+		$result =  $interface->getObj($sql) ;
+		return $result;
 	}
+	
 	
 	function update($subCategorie)
 	{
