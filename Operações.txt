@@ -18,4 +18,8 @@ j - SELECT accounts.name, sum(expenses.ammount) FROM accounts, expenses
 	and expenses.date LIKE '2013-05'
 	group by accounts.name
 
-k - 
+k - SELECT date_format( date, '%M' ) "mes", sum( expenses.ammount ) valor
+	FROM expenses
+	WHERE date >= '2013-05-01 00:00:00'
+	AND date <= '2013-08-30 00:00:00'
+	GROUP BY MONTH( expenses.date )
