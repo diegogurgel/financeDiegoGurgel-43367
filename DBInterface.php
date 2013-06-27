@@ -11,7 +11,7 @@ class DBInterface{
 			die ("Falha na coneco com o Banco de Dados!");
 		}else
 		{
-			$this->dataBase =  mysql_select_db("trabalhofinance");
+			$this->dataBase =  mysql_select_db("finance");
 		}
 	}
 

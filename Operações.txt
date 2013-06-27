@@ -1,0 +1,6 @@
+Operações
+
+f - SELECT SUM(ammount) as 'TotalOrcado'  FROM budget_records
+
+g - SELECT SUM( ammount ) as 'totalMes' FROM  `expenses` WHERE DATE LIKE  '2013-06%'
+

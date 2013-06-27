@@ -13,16 +13,15 @@ class AccountDao implements Dao
 	function select($id='')
 	{
 		$interface = new DBInterface();
-		if($id!=''){
-			$sql = "SELECT * FROM  accounts WHERE id = $id";
-		}else{
-			$sql = "SELECT * FROM  accounts";
-		}
+		$sql = "SELECT * FROM  accounts WHERE id = $id";
 		$result =  $interface->getObj($sql) ;
 		return $result;
 	}
 	function selectAll(){
-		
+		$interface = new DBInterface();
+		$sql = "SELECT * FROM  accounts";
+		$result =  $interface->getObj($sql) ;
+		return $result;			
 	}
 	function update($account)
 	{
