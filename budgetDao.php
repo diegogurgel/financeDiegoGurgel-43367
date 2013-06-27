@@ -11,7 +11,7 @@ class BudgetDao implements Dao
 		$result = $interface->executeSQL($sql);		
 	}
 
-	function select($id='')
+	function select($id)
 	{
 		$interface = new DBInterface();
 		$sql = "SELECT * FROM  budgets WHERE id = $id";
