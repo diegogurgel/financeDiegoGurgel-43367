@@ -33,7 +33,4 @@ class budgetRecordDao implements Dao{
 		$result =  $interface->executeSQL($sql);
 	}
 }
-
-
-
 ?>
