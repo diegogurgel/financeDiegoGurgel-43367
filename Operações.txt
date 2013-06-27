@@ -4,3 +4,18 @@ f - SELECT SUM(ammount) as 'TotalOrcado'  FROM budget_records
 
 g - SELECT SUM( ammount ) as 'totalMes' FROM  `expenses` WHERE DATE LIKE  '2013-06%'
 
+h - SELECT SUM( budget_records.ammount ) - (SELECT SUM( expenses.ammount )FROM expenses WHERE date LIKE "2013-06%" ) total FROM budget_records
+
+i - SELECT SUM( expenses.ammount ) total, categories.name categoria
+	FROM categories, sub_categories, expenses
+	WHERE categories.id = sub_categories.category_id
+	AND expenses.sub_category_id = sub_categories.id
+	AND expenses.date LIKE '2013-06%'
+	GROUP BY categories.name
+
+j - SELECT accounts.name, sum(expenses.ammount) FROM accounts, expenses
+	WHERE accounts.id = expenses.account_id
+	and expenses.date LIKE '2013-05'
+	group by accounts.name
+
+k - 
